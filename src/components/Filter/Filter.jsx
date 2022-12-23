@@ -1,21 +1,21 @@
 import style from './Filter.module.css';
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/actions';
+import { setFilter } from 'redux/filterSlice';
+import debounce from 'debounce';
 
-    export const Filter = () => {
-        
+export const Filter = () => {
+    
     const dispatch = useDispatch();
+    const onChange = debounce(e => {
+    const value = e.target.value.toLowerCase();
 
-    const onChange = e => {
-        const value = e.target.value.toLowerCase();
-
-        dispatch(setFilter(value));
-    };
+    dispatch(setFilter(value));
+    },1000);
 
     return (
-        <label>
+        <label className={style.filterLabel}>
         Find contacts by name
-        <input className={style.filterInput} type="name" onChange={onChange} />
+        <input className={style.filterInput} type="name"   placeholder='Start typing...' onChange={onChange} />
         </label>
     );
 };

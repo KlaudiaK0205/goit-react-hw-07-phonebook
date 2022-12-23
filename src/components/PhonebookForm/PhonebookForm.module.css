@@ -7,8 +7,9 @@
     }
 
 .formInput{
-    width: 200px;
-    font-size: 5px;
+    width: 300px;
+    height: 10px;
+    font-size: 0px;
     margin-bottom: 20px;
     padding: 10px;
     border-color: #FFB366;
@@ -27,7 +28,8 @@
     cursor: pointer;
     }
 
-.formBtn:hover {
+.formBtn:hover,
+.formInput:hover {
     background-color: #FFB366;
     color: #FFFFFF;
     box-shadow: 5px 5px 15px 5px #FF9933;
